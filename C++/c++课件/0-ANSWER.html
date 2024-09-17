@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NEUQ-CCE-2019-CPP-CS-Final</title>
+  <style>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Lantinghei SC", "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+}
+.ques-view *:first-child {
+  margin-top: 0;
+}
+.container {
+  max-width: 940px;
+  margin: auto;
+}
+.problemType {
+  display: flex;
+  font-size: 18px;
+  margin: 24px 0 16px;
+}
+.problemType > span:first-child {
+  flex-grow: 1;
+  font-weight: bold;
+}
+.problemType > span:last-child {
+  margin-left: 20px;
+}
+.title {
+  padding: 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.header > div {
+  width: calc(100% / 3);
+  display: inline-flex;
+}
+.header > div > span:first-child {
+  font-weight: bold;
+  width: 56px;
+}
+.header > div > span:first-child + span {
+  margin-left: 8px;
+}
+.container {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+}
+.container .problem {
+  display: flex;
+}
+.container .problem > :first-child {
+  margin-right: 12px;
+  white-space: nowrap;
+}
+.container .problem > :nth-child(2) {
+  overflow-x: hidden;
+}
+.container .judgeResponse table {
+  width: 100%;
+}
+.container .judgeResponse th,
+.container .judgeResponse td {
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  text-align: center;
+}
+.container .shortField {
+  display: flex;
+}
+.container .shortField > :first-child {
+  width: 80px;
+}
+.container .shortField > :nth-child(2) a {
+  padding: 2px 12px;
+  border: 1px solid hsl(212, 89%, 53%);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.container .shortField > :nth-child(2) a:hover {
+  background-color: hsl(35, 90%, 50%);
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 100%);
+}
+.container .longField > :first-child ~ * {
+  padding: 16px;
+  border: 1px dashed hsla(0, 0%, 0%, 0.1);
+}
+.container .shortField,
+.container .longField {
+  margin-top: 8px;
+}
+.container .shortField > :first-child,
+.container .longField > :first-child {
+  position: relative;
+}
+.container .shortField > :first-child::before,
+.container .longField > :first-child::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 100%;
+  left: -12px;
+  top: 0;
+  background-color: hsla(0, 0%, 0%, 0.2);
+}
+.ques-view {
+  line-height: 1.5;
+  /* font-family: 'Times New Roman'; */
+}
+.ques-view p {
+  margin: 0.5em 0;
+}
+.ques-view h1,
+.ques-view h2,
+.ques-view h3,
+.ques-view h4,
+.ques-view h5,
+.ques-view h6 {
+  margin: 0.8em 0;
+}
+.ques-view img {
+  max-width: 100%;
+}
+.ques-view .ques-list {
+  padding-left: 50px;
+}
+.ques-view .ques-list li {
+  position: relative;
+  list-style-type: upper-alpha;
+}
+.ques-view .ques-list input {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  margin-top: -7px;
+}
+.ques-view textarea {
+  border-radius: 2px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+.ques-view code {
+  font-size: 12px;
+  background: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  padding: 0 3px;
+  color: #e74c3c;
+  margin: 0 2px;
+  font-family: 'YaHei consolas Hybrid', 'Consolas', monospace;
+}
+.ques-view pre {
+  padding: 6px 12px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  word-break: break-all;
+}
+.ques-view pre code {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+.ques-view hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+.ques-view blockquote {
+  margin: 0.5em 0;
+  padding: 2px 14px;
+  font-size: 12px;
+  background: #f4f4f4;
+  border-left: 4px solid #ddd;
+}
+.ques-view table {
+  margin: 0 auto;
+}
+.ques-view table th,
+.ques-view table td {
+  border: 1px solid #ddd;
+  padding: 2px 4px;
+  font-size: 12px;
+}
+.ques-view .ques-score {
+  color: #999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/* katex */
+.katex-mathml {
+  display: none;
+}
+</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.7.1/dist/katex.min.css" integrity="sha256-tkzDFSl16wERzhCWg0ge2tON2+D6Qe9iEaJqM4ZGd4E=" crossorigin="anonymous">
+</head>
+<body>
+
+<div><div class="container"><div class="title">NEUQ-CCE-2019-CPP-CS-Final</div><div class="header"><div><span>开始时间</span><span>1/7/2020, 5:50:00 AM</span></div><div><span>结束时间</span><span>1/7/2020, 10:50:00 AM</span></div><div><span>答题时长</span><span>120分钟</span></div><div><span>答卷类型</span><span>标准答案</span></div><div><span>总分</span><span>60</span></div></div><hr/><div><div class="problemType"><span>判断题</span><span>总分：20</span><span>得分：-</span></div><div class="container"><div class="problem"><div>1-1</div><div><div class="ques-view"><p>标识符只能由字母、数字和下划线组成。    <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques925" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques925">F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-2</div><div><div class="ques-view"><p>switch语句中的每一个的case常量表达式的值必须不同。  <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques926" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques926">F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-3</div><div><div class="ques-view"><p>大写字母&#39;M&#39;的ASCII码值比小写字母&#39;m&#39;的ASCII码值大。<span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques927">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques927" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-4</div><div><div class="ques-view"><p>C++语言中，数字字符&#39;1&#39;的ASCII码就是数字1。 <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques928">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques928" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-5</div><div><div class="ques-view"><p>指向数组元素的指针只可指向数组的首元素。 <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques929">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques929" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-6</div><div><div class="ques-view"><p>函数的形参都属于全局变量。   <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques930">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques930" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-7</div><div><div class="ques-view"><p>执行语句int *p=1000;后，指针变量p指向地址为1000的变量。<span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques931">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques931" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-8</div><div><div class="ques-view"><p>对于定义int a[10],*p=a; 语句p=a+1;和a=a+1;都是合法的。    <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques932">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques932" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-9</div><div><div class="ques-view"><p>调用strcmp函数比较字符串大小时，通常较长的字符串会较大。 <span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques933">T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques933" checked>F</label></div></p>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>1-10</div><div><div class="ques-view"><p>抽象类不能实例化对象。<span class="ques-score">(2分)</span><div class="ques-answer ques-tof"><label><input disabled type="radio" name="ques934" checked>T</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input disabled type="radio" name="ques934">F</label></div></p>
+</div>
+</div></div></div></div><div><div class="problemType"><span>单选题</span><span>总分：20</span><span>得分：-</span></div><div class="container"><div class="problem"><div>2-1</div><div><div class="ques-view"><p>以下选项中合法的用户标识符是（     ）。<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques935"> 9Neu		</label></li>
+<li><label><input disabled type="radio" name="ques935"> A@B.com		</label></li>
+<li><label><input disabled type="radio" name="ques935" checked> _F			</label></li>
+<li><label><input disabled type="radio" name="ques935"> N-P</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-2</div><div><div class="ques-view"><p>设有定义int a=1, b=2; 则表达式(a++) - (--b)值是（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques936"> -1		</label></li>
+<li><label><input disabled type="radio" name="ques936" checked> 0					</label></li>
+<li><label><input disabled type="radio" name="ques936"> 1				</label></li>
+<li><label><input disabled type="radio" name="ques936"> 2</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-3</div><div><div class="ques-view"><p>设有定义：<code>char a [ ]=&quot;NEUQ&quot;;</code> 则数组 a占用字节数为（     ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques937"> 4		</label></li>
+<li><label><input disabled type="radio" name="ques937" checked> 5		</label></li>
+<li><label><input disabled type="radio" name="ques937"> 6		</label></li>
+<li><label><input disabled type="radio" name="ques937"> 无限</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-4</div><div><div class="ques-view"><p>下列叙述中正确的是（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques938"> break 语句只能用于 switch 语句体中</label></li>
+<li><label><input disabled type="radio" name="ques938"> continue语句的作用是使程序的执行流程跳出包含它的所有循环</label></li>
+<li><label><input disabled type="radio" name="ques938"> 循环体内使用 break语句和 continue 语句的作用相同</label></li>
+<li><label><input disabled type="radio" name="ques938" checked> break 语句可以用在循环体内和 switch 语句体内</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-5</div><div><div class="ques-view"><p>函数返回值的类型取决于（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques939"> return语句中的表达式类型     </label></li>
+<li><label><input disabled type="radio" name="ques939"> 调用该函数时的实参的数据类型</label></li>
+<li><label><input disabled type="radio" name="ques939" checked> 函数定义时指定的类型      	</label></li>
+<li><label><input disabled type="radio" name="ques939"> 形参的数据类型</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-6</div><div><div class="ques-view"><p>下列数组定义中，错误的是（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques940"> char c1[]={‘N’, ‘E’,’U’,’Q’};		</label></li>
+<li><label><input disabled type="radio" name="ques940" checked> char c2[4]=&quot;NEUQ&quot;;</label></li>
+<li><label><input disabled type="radio" name="ques940"> char c3[]= &quot;NEUQ&quot;;				</label></li>
+<li><label><input disabled type="radio" name="ques940"> char c4[]={78, 69, 85, 81};</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-7</div><div><div class="ques-view"><p>在一个被调用函数中关于 return 语句使用的描述错误的是（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques941"> 被调用函数中可以不用 return 语句</label></li>
+<li><label><input disabled type="radio" name="ques941"> 被调用函数中可以使用多个 return 语句</label></li>
+<li><label><input disabled type="radio" name="ques941"> 被调用函数中，如果有返回值，就一定要有 return 语句</label></li>
+<li><label><input disabled type="radio" name="ques941" checked> 被调用函数中，一个 return 语句可以返回多个值给调用函数</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-8</div><div><div class="ques-view"><p>设有下面的程序段：</p>
+<p><code>char s[]=&quot;china&quot;; 
+ char *p;  
+ p=s;</code></p>
+<p>则下列叙述正确的是（    ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques942"> s和p完全相同			</label></li>
+<li><label><input disabled type="radio" name="ques942"> 数组s中的内容和指针变量p中的内容相等</label></li>
+<li><label><input disabled type="radio" name="ques942" checked> *p与s[0]相等			</label></li>
+<li><label><input disabled type="radio" name="ques942"> 语句p=s与s=p功能一样</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-9</div><div><div class="ques-view"><p>下列关于构造函数说法错误的是（      ）<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques943"> 构造函数必须与类同名					</label></li>
+<li><label><input disabled type="radio" name="ques943"> 构造函数可以省略不写</label></li>
+<li><label><input disabled type="radio" name="ques943"> 在构造函数中可以对类成员进行初始化	</label></li>
+<li><label><input disabled type="radio" name="ques943" checked> 构造函数必须有返回值</label></li>
+</ol>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>2-10</div><div><div class="ques-view"><p>类的成员函数不包括（      ）。<span class="ques-score">(2分)</span></p>
+<ol class="ques-answer ques-choice ques-list">
+<li><label><input disabled type="radio" name="ques944"> 构造函数			</label></li>
+<li><label><input disabled type="radio" name="ques944"> 析构函数</label></li>
+<li><label><input disabled type="radio" name="ques944" checked> 友元函数			</label></li>
+<li><label><input disabled type="radio" name="ques944"> 复制构造函数</label></li>
+</ol>
+</div>
+</div></div></div></div><div><div class="problemType"><span>程序填空题</span><span>总分：20</span><span>得分：-</span></div><div class="container"><div class="problem"><div>5-1</div><div><div class="ques-view"><p>查找整型数组中最大元素的值和下标。题目输入保证数组元素各不相同。</p>
+<pre><code class="lang-c++">
+#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+	int a[5]={-7, 2,1,8,0};
+	int max = a[0];
+	int index=0;
+	for(int i=1; <input disabled class="ques-answer" type="text" value=" i&lt;5" size="12"><span class="ques-score">(2分)</span>;i++)
+		if(<input disabled class="ques-answer" type="text" value="a[i]&gt;max" size="12"><span class="ques-score">(2分)</span>)
+		{
+			max=a[i];
+			<input disabled class="ques-answer" type="text" value="index=i" size="12"><span class="ques-score">(2分)</span> ;
+		}
+	cout&lt;&lt;&quot;max=&quot;&lt;&lt;max&lt;&lt;&quot;  index=&quot;&lt;&lt;index&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>5-2</div><div><div class="ques-view"><p>在数组中同时查找最大元素和最小元素的下标，分别存放在函数main()的max和min变量中。</p>
+<pre><code class="lang-c++">#include &lt;iostream&gt;
+using namespace std;
+void find(int *, int, int *, int *);
+int main(void)
+{
+    int max, min, a[]= {5,3,7,9,2,0,4,1,6,8};
+    find(<input disabled class="ques-answer" type="text" value="a, 10, &amp;max, &amp;min" size="21"><span class="ques-score">(2分)</span>);
+    cout&lt;&lt;max&lt;&lt;&quot;  &quot;&lt;&lt;min&lt;&lt;endl;
+    return 0;
+}
+void find(int *a, int n, int *max, int *min)
+{
+    int i;
+    *max=*min=0;
+    for (i = 1; i &lt; n; i++)
+    {
+        if (a[i] &gt; a [*max])
+            <input disabled class="ques-answer" type="text" value="*max=i" size="21"><span class="ques-score">(2分)</span> ;
+        if (a[i] &lt; a [*min])
+            <input disabled class="ques-answer" type="text" value="*min=i" size="21"><span class="ques-score">(2分)</span> ;
+    }
+}
+</code></pre>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>5-3</div><div><div class="ques-view"><p>定义长方体类，并生成1个长为12、宽为10、高为5的长方体对象。</p>
+<pre><code class="lang-c++">#include &lt;iostream&gt;
+using namespace std;
+class Box
+{
+public:
+    Box(int,int,int);
+private:
+    int length;
+    int width;
+    int height;
+};
+<input disabled class="ques-answer" type="text" value="Box::Box(int len, int w, int h)" size="35"><span class="ques-score">(2分)</span>
+{
+    length=len;
+    width=w;
+    height=h;
+    cout&lt;&lt;&quot;The Box is created. Parm:length=&quot;&lt;&lt;length&lt;&lt;&quot;, width=&quot;&lt;&lt;width&lt;&lt;&quot;, height=&quot;&lt;&lt;height&lt;&lt;&quot;.&quot;&lt;&lt;endl;
+}
+int main( )
+{
+    <input disabled class="ques-answer" type="text" value="Box box1(12,10,5);" size="35"><span class="ques-score">(2分)</span>
+    return 0;
+}
+
+</code></pre>
+</div>
+</div></div></div><div class="container"><div class="problem"><div>5-4</div><div><div class="ques-view"><p>编写程序将数组中的元素逆序存放，如{1,2,3,4,5}变成{5,4,3,2,1}。</p>
+<pre><code class="lang-c++">#include &lt;iostream&gt;
+#define N 5
+using namespace std;
+int main()
+{
+    int a[N]= {1,2,3,4,5}, i, temp;
+    for(i=0; <input disabled class="ques-answer" type="text" value="i&lt;N/2" size="17"><span class="ques-score">(2分)</span>; i++)
+    {
+        temp=a[i];
+        <input disabled class="ques-answer" type="text" value="a[i]=a[N-i-1]" size="17"><span class="ques-score">(2分)</span>;
+        a[N-i-1]=temp;
+    }
+    for(i=0; i&lt;N; i++)
+    {
+        if (i==0)
+            cout&lt;&lt;a[i];
+        else        
+            cout&lt;&lt;&quot; &quot;&lt;&lt;a[i];
+    }
+    return 0;
+}
+
+
+</code></pre>
+</div>
+</div></div></div></div></div></div>
+
+</body>
+</html>
